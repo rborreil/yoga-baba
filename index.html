@@ -1,1786 +1,2321 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yoga Baba — Sessions de Yoga aux Seychelles | Plage & Nature</title>
-    <meta name="description" content="Séréna, coach de yoga indépendante aux Seychelles. Sessions sur la plage, en pleine nature. Réservez votre séance individuelle ou en groupe.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta
+      name="description"
+      content="Séréna, coach de yoga indépendante aux Seychelles. Sessions sur la plage, en pleine nature. Réservez votre séance individuelle ou en groupe."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --sand: #F5EDE3;
-            --sand-deep: #E8D9C5;
-            --ocean: #1A6B6A;
-            --ocean-light: #2A8B89;
-            --ocean-pale: #E0F0EF;
-            --coral: #D4856A;
-            --coral-warm: #E09A7F;
-            --night: #1C2420;
-            --night-soft: #2D3B34;
-            --cream: #FDFAF6;
-            --white: #FFFFFF;
-            --text: #3A3A38;
-            --text-light: #7A7A72;
-            --gold: #C5A467;
-            --gold-light: #DFC48E;
-            --serif: 'Cormorant Garamond', Georgia, serif;
-            --sans: 'Outfit', system-ui, sans-serif;
-        }
+      :root {
+        --sand: #f5ede3;
+        --sand-deep: #e8d9c5;
+        --ocean: #1a6b6a;
+        --ocean-light: #2a8b89;
+        --ocean-pale: #e0f0ef;
+        --coral: #d4856a;
+        --coral-warm: #e09a7f;
+        --night: #1c2420;
+        --night-soft: #2d3b34;
+        --cream: #fdfaf6;
+        --white: #ffffff;
+        --text: #3a3a38;
+        --text-light: #7a7a72;
+        --gold: #c5a467;
+        --gold-light: #dfc48e;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "Outfit", system-ui, sans-serif;
+      }
 
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        html { scroll-behavior: smooth; font-size: 16px; }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
 
-        body {
-            font-family: var(--sans);
-            color: var(--text);
-            background: var(--cream);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
+      body {
+        font-family: var(--sans);
+        color: var(--text);
+        background: var(--cream);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
 
-        /* ===== UTILITY ===== */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+      /* ===== UTILITY ===== */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+      }
 
-        /* ===== GRAIN OVERLAY ===== */
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.025;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-size: 200px;
-        }
+      /* ===== GRAIN OVERLAY ===== */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.025;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 200px;
+      }
 
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+      /* ===== ANIMATIONS ===== */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.92); }
-            to { opacity: 1; transform: scale(1); }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
-        @keyframes slideRight {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
+        to {
+          opacity: 1;
         }
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.03); }
+      }
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.92);
         }
-        @keyframes wave {
-            0% { transform: translateX(0) translateY(0); }
-            25% { transform: translateX(-5px) translateY(3px); }
-            50% { transform: translateX(0) translateY(6px); }
-            75% { transform: translateX(5px) translateY(3px); }
-            100% { transform: translateX(0) translateY(0); }
+        to {
+          opacity: 1;
+          transform: scale(1);
         }
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
+      }
+      @keyframes slideRight {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
         }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes breathe {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.03);
+        }
+      }
+      @keyframes wave {
+        0% {
+          transform: translateX(0) translateY(0);
+        }
+        25% {
+          transform: translateX(-5px) translateY(3px);
+        }
+        50% {
+          transform: translateX(0) translateY(6px);
+        }
+        75% {
+          transform: translateX(5px) translateY(3px);
+        }
+        100% {
+          transform: translateX(0) translateY(0);
+        }
+      }
+      @keyframes floatSlow {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-15px) rotate(2deg);
+        }
+      }
 
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1); }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-delay-1 {
+        transition-delay: 0.1s;
+      }
+      .reveal-delay-2 {
+        transition-delay: 0.2s;
+      }
+      .reveal-delay-3 {
+        transition-delay: 0.3s;
+      }
+      .reveal-delay-4 {
+        transition-delay: 0.4s;
+      }
 
-        /* ===== NAVIGATION ===== */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.5s ease;
-        }
-        nav.scrolled {
-            background: rgba(253, 250, 246, 0.92);
-            backdrop-filter: blur(20px);
-            padding: 12px 0;
-            box-shadow: 0 1px 30px rgba(0,0,0,0.06);
-        }
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .nav-logo {
-            font-family: var(--serif);
-            font-size: 1.6rem;
-            font-weight: 300;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 0.04em;
-            transition: color 0.4s;
-        }
-        nav.scrolled .nav-logo { color: var(--night); }
-        .nav-logo span { color: var(--coral-warm); font-style: italic; }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            list-style: none;
-        }
-        .nav-links a {
-            font-family: var(--sans);
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: rgba(255,255,255,0.85);
-            text-decoration: none;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            transition: all 0.3s;
-            position: relative;
-        }
-        nav.scrolled .nav-links a { color: var(--text); }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--coral);
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-cta {
-            background: var(--ocean) !important;
-            color: var(--white) !important;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 500 !important;
-            letter-spacing: 0.04em !important;
-            transition: all 0.3s !important;
-        }
-        .nav-cta:hover { background: var(--ocean-light) !important; transform: translateY(-1px); }
-        .nav-cta::after { display: none !important; }
+      /* ===== NAVIGATION ===== */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 20px 0;
+        transition: all 0.5s ease;
+      }
+      nav.scrolled {
+        background: rgba(253, 250, 246, 0.92);
+        backdrop-filter: blur(20px);
+        padding: 12px 0;
+        box-shadow: 0 1px 30px rgba(0, 0, 0, 0.06);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-logo {
+        font-family: var(--serif);
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: var(--white);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.4s;
+      }
+      nav.scrolled .nav-logo {
+        color: var(--night);
+      }
+      .nav-logo span {
+        color: var(--coral-warm);
+        font-style: italic;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: all 0.3s;
+        position: relative;
+      }
+      nav.scrolled .nav-links a {
+        color: var(--text);
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1.5px;
+        background: var(--coral);
+        transition: width 0.3s ease;
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+      .nav-cta {
+        background: var(--ocean) !important;
+        color: var(--white) !important;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: 500 !important;
+        letter-spacing: 0.04em !important;
+        transition: all 0.3s !important;
+      }
+      .nav-cta:hover {
+        background: var(--ocean-light) !important;
+        transform: translateY(-1px);
+      }
+      .nav-cta::after {
+        display: none !important;
+      }
 
-        /* Mobile menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1001;
-        }
-        .hamburger span {
-            width: 26px;
-            height: 2px;
-            background: var(--white);
-            transition: all 0.3s;
-            border-radius: 2px;
-        }
-        nav.scrolled .hamburger span { background: var(--night); }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+      /* Mobile menu */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 1001;
+      }
+      .hamburger span {
+        width: 26px;
+        height: 2px;
+        background: var(--white);
+        transition: all 0.3s;
+        border-radius: 2px;
+      }
+      nav.scrolled .hamburger span {
+        background: var(--night);
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
 
-        /* ===== HERO ===== */
-        .hero {
-            min-height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(165deg, #1a3a3a 0%, #0d4a4a 30%, #1A6B6A 60%, #2a7a6a 100%);
-        }
-        .hero-bg-pattern {
-            position: absolute;
-            inset: 0;
-            opacity: 0.07;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(212,133,106,0.4) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(197,164,103,0.3) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 60%);
-        }
-        .hero-wave {
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 120px;
-        }
-        .hero-wave svg { width: 100%; height: 100%; }
+      /* ===== HERO ===== */
+      .hero {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: linear-gradient(
+          165deg,
+          #1a3a3a 0%,
+          #0d4a4a 30%,
+          #1a6b6a 60%,
+          #2a7a6a 100%
+        );
+      }
+      .hero-bg-pattern {
+        position: absolute;
+        inset: 0;
+        /* opacity: 0.07; */
+        opacity: 0.4;
+        background-image:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(212, 133, 106, 0.4) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(197, 164, 103, 0.3) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 60%
+          );
+      }
+      .hero-wave {
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 120px;
+      }
+      .hero-wave svg {
+        width: 100%;
+        height: 100%;
+      }
 
-        .hero-floating-leaf {
-            position: absolute;
-            font-size: 3rem;
-            opacity: 0.08;
-            animation: floatSlow 8s ease-in-out infinite;
-            pointer-events: none;
-        }
-        .hero-floating-leaf:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
-        .hero-floating-leaf:nth-child(2) { top: 60%; right: 10%; animation-delay: 2s; font-size: 2rem; }
-        .hero-floating-leaf:nth-child(3) { bottom: 25%; left: 15%; animation-delay: 4s; font-size: 2.5rem; }
+      .hero-floating-leaf {
+        position: absolute;
+        font-size: 3rem;
+        opacity: 0.08;
+        animation: floatSlow 8s ease-in-out infinite;
+        pointer-events: none;
+      }
+      .hero-floating-leaf:nth-child(1) {
+        top: 15%;
+        left: 8%;
+        animation-delay: 0s;
+      }
+      .hero-floating-leaf:nth-child(2) {
+        top: 60%;
+        right: 10%;
+        animation-delay: 2s;
+        font-size: 2rem;
+      }
+      .hero-floating-leaf:nth-child(3) {
+        bottom: 25%;
+        left: 15%;
+        animation-delay: 4s;
+        font-size: 2.5rem;
+      }
 
-        .hero-content {
-            text-align: center;
-            padding: 0 24px;
-            max-width: 800px;
-            position: relative;
-            z-index: 2;
-        }
-        .hero-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--sans);
-            font-size: 0.78rem;
-            font-weight: 500;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--gold-light);
-            margin-bottom: 28px;
-            animation: fadeUp 1s ease-out 0.2s both;
-        }
-        .hero-tag::before, .hero-tag::after {
-            content: '';
-            width: 30px;
-            height: 1px;
-            background: var(--gold-light);
-            opacity: 0.5;
-        }
-        .hero h1 {
-            font-family: var(--serif);
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
-            font-weight: 300;
-            color: var(--white);
-            line-height: 1.1;
-            margin-bottom: 24px;
-            animation: fadeUp 1s ease-out 0.4s both;
-        }
-        .hero h1 em {
-            font-style: italic;
-            color: var(--coral-warm);
-            font-weight: 400;
-        }
-        .hero-sub {
-            font-family: var(--sans);
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: rgba(255,255,255,0.75);
-            line-height: 1.7;
-            max-width: 520px;
-            margin: 0 auto 40px;
-            animation: fadeUp 1s ease-out 0.6s both;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeUp 1s ease-out 0.8s both;
-        }
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--coral);
-            color: var(--white);
-            padding: 16px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: var(--sans);
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            border: none;
-            cursor: pointer;
-        }
-        .btn-primary:hover { background: var(--coral-warm); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(212,133,106,0.3); }
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: transparent;
-            color: var(--white);
-            padding: 16px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: var(--sans);
-            font-size: 0.9rem;
-            font-weight: 400;
-            letter-spacing: 0.04em;
-            border: 1.5px solid rgba(255,255,255,0.35);
-            transition: all 0.4s;
-            cursor: pointer;
-        }
-        .btn-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); }
+      .hero-content {
+        text-align: center;
+        padding: 0 24px;
+        max-width: 800px;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+        margin-bottom: 28px;
+        animation: fadeUp 1s ease-out 0.2s both;
+      }
+      .hero-tag::before,
+      .hero-tag::after {
+        content: "";
+        width: 30px;
+        height: 1px;
+        background: var(--gold-light);
+        opacity: 0.5;
+      }
+      .hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(2.8rem, 7vw, 5.5rem);
+        font-weight: 300;
+        color: var(--white);
+        line-height: 1.1;
+        margin-bottom: 24px;
+        animation: fadeUp 1s ease-out 0.4s both;
+      }
+      .hero h1 em {
+        font-style: italic;
+        color: var(--coral-warm);
+        font-weight: 400;
+      }
+      .hero-sub {
+        font-family: var(--sans);
+        font-size: 1.1rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.7;
+        max-width: 520px;
+        margin: 0 auto 40px;
+        animation: fadeUp 1s ease-out 0.6s both;
+      }
+      .hero-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeUp 1s ease-out 0.8s both;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--coral);
+        color: var(--white);
+        padding: 16px 36px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: var(--sans);
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        border: none;
+        cursor: pointer;
+      }
+      .btn-primary:hover {
+        background: var(--coral-warm);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(212, 133, 106, 0.3);
+      }
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        color: var(--white);
+        padding: 16px 36px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: var(--sans);
+        font-size: 0.9rem;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+        border: 1.5px solid rgba(255, 255, 255, 0.35);
+        transition: all 0.4s;
+        cursor: pointer;
+      }
+      .btn-secondary:hover {
+        border-color: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.08);
+      }
 
-        .hero-scroll {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            animation: fadeIn 1s ease-out 1.4s both;
-        }
-        .hero-scroll span {
-            display: block;
-            width: 1px;
-            height: 50px;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
-            margin: 0 auto;
-            animation: breathe 2s ease-in-out infinite;
-        }
+      .hero-scroll {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        animation: fadeIn 1s ease-out 1.4s both;
+      }
+      .hero-scroll span {
+        display: block;
+        width: 1px;
+        height: 50px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.5),
+          transparent
+        );
+        margin: 0 auto;
+        animation: breathe 2s ease-in-out infinite;
+      }
 
-        /* ===== SECTION TITLES ===== */
-        .section-tag {
-            font-family: var(--sans);
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--ocean);
-            margin-bottom: 12px;
-        }
-        .section-title {
-            font-family: var(--serif);
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 300;
-            color: var(--night);
-            line-height: 1.15;
-            margin-bottom: 16px;
-        }
-        .section-title em { font-style: italic; color: var(--ocean); }
-        .section-subtitle {
-            font-family: var(--sans);
-            font-size: 1rem;
-            font-weight: 300;
-            color: var(--text-light);
-            line-height: 1.7;
-            max-width: 520px;
-        }
+      /* ===== SECTION TITLES ===== */
+      .section-tag {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ocean);
+        margin-bottom: 12px;
+      }
+      .section-title {
+        font-family: var(--serif);
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 300;
+        color: var(--night);
+        line-height: 1.15;
+        margin-bottom: 16px;
+      }
+      .section-title em {
+        font-style: italic;
+        color: var(--ocean);
+      }
+      .section-subtitle {
+        font-family: var(--sans);
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--text-light);
+        line-height: 1.7;
+        max-width: 520px;
+      }
 
-        /* ===== ABOUT / INTRO ===== */
-        .about {
-            padding: 120px 0;
-            position: relative;
-        }
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        .about-image {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            aspect-ratio: 3/4;
-            background: linear-gradient(135deg, var(--ocean-pale) 0%, var(--sand) 100%);
-        }
-        .about-image-inner {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            text-align: center;
-            position: relative;
-        }
-        .about-image-lotus {
-            font-size: 5rem;
-            margin-bottom: 20px;
-            animation: breathe 4s ease-in-out infinite;
-        }
-        .about-image-text {
-            font-family: var(--serif);
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: var(--ocean);
-            font-style: italic;
-            line-height: 1.5;
-        }
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100px;
-            height: 100px;
-            border: 2px solid var(--gold-light);
-            border-radius: 50%;
-            opacity: 0.3;
-            z-index: 1;
-        }
-        .about-text .section-subtitle { margin-bottom: 28px; }
-        .about-values {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 32px;
-        }
-        .about-value {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-        .about-value-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--ocean-pale);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-        .about-value h4 {
-            font-family: var(--sans);
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--night);
-            margin-bottom: 4px;
-        }
-        .about-value p {
-            font-family: var(--sans);
-            font-size: 0.85rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
+      /* ===== ABOUT / INTRO ===== */
+      .about {
+        padding: 120px 0;
+        position: relative;
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .about-image {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        aspect-ratio: 3/4;
+        background: linear-gradient(
+          135deg,
+          var(--ocean-pale) 0%,
+          var(--sand) 100%
+        );
+      }
+      .about-image-inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        text-align: center;
+        position: relative;
+      }
+      .about-image-lotus {
+        font-size: 5rem;
+        margin-bottom: 20px;
+        animation: breathe 4s ease-in-out infinite;
+      }
+      .about-image-text {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--ocean);
+        font-style: italic;
+        line-height: 1.5;
+      }
+      .about-image::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 100px;
+        height: 100px;
+        border: 2px solid var(--gold-light);
+        border-radius: 50%;
+        opacity: 0.3;
+        z-index: 1;
+      }
+      .about-text .section-subtitle {
+        margin-bottom: 28px;
+      }
+      .about-values {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 32px;
+      }
+      .about-value {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .about-value-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--ocean-pale);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+      .about-value h4 {
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--night);
+        margin-bottom: 4px;
+      }
+      .about-value p {
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
 
-        /* ===== SERVICES / SESSIONS ===== */
-        .sessions {
-            padding: 120px 0;
-            background: var(--sand);
-            position: relative;
-        }
-        .sessions::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--sand-deep), transparent);
-        }
-        .sessions-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-        .sessions-header .section-subtitle { margin: 0 auto; }
+      /* ===== SERVICES / SESSIONS ===== */
+      .sessions {
+        padding: 120px 0;
+        background: var(--sand);
+        position: relative;
+      }
+      .sessions::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--sand-deep),
+          transparent
+        );
+      }
+      .sessions-header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      .sessions-header .section-subtitle {
+        margin: 0 auto;
+      }
+      .sessions-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+      .session-card {
+        background: var(--white);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        position: relative;
+      }
+      .session-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+      }
+      .session-card-visual {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .session-card:nth-child(1) .session-card-visual {
+        background: linear-gradient(135deg, #e0f0ef 0%, #c5e8e7 100%);
+      }
+      .session-card:nth-child(2) .session-card-visual {
+        background: linear-gradient(135deg, #f5ede3 0%, #e8d9c5 100%);
+      }
+      .session-card:nth-child(3) .session-card-visual {
+        background: linear-gradient(135deg, #e8e0d4 0%, #d4c4a8 100%);
+      }
+      .session-card-badge {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: var(--white);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--ocean);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .session-card-body {
+        padding: 32px;
+      }
+      .session-card h3 {
+        font-family: var(--serif);
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: var(--night);
+        margin-bottom: 8px;
+      }
+      .session-card-meta {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        color: var(--text-light);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .session-card-meta span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .session-card p {
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        color: var(--text-light);
+        line-height: 1.7;
+        margin-bottom: 24px;
+      }
+      .session-card-price {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        margin-bottom: 20px;
+      }
+      .session-card-price .amount {
+        font-family: var(--serif);
+        font-size: 2rem;
+        font-weight: 500;
+        color: var(--ocean);
+      }
+      .session-card-price .per {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        color: var(--text-light);
+      }
+      .session-card-cta {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+        border-radius: 12px;
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s;
+        letter-spacing: 0.03em;
+      }
+      .session-card:nth-child(1) .session-card-cta,
+      .session-card:nth-child(3) .session-card-cta {
+        background: var(--ocean-pale);
+        color: var(--ocean);
+      }
+      .session-card:nth-child(1) .session-card-cta:hover,
+      .session-card:nth-child(3) .session-card-cta:hover {
+        background: var(--ocean);
+        color: var(--white);
+      }
+      .session-card:nth-child(2) .session-card-cta {
+        background: var(--ocean);
+        color: var(--white);
+      }
+      .session-card:nth-child(2) .session-card-cta:hover {
+        background: var(--ocean-light);
+      }
+      .session-card:nth-child(2) {
+        border: 2px solid var(--ocean);
+      }
+      .session-card:nth-child(2) .session-card-badge {
+        background: var(--ocean);
+        color: var(--white);
+      }
+
+      /* ===== SPOTS / LIEUX ===== */
+      .spots {
+        padding: 120px 0;
+        position: relative;
+      }
+      .spots-header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      .spots-header .section-subtitle {
+        margin: 0 auto;
+      }
+      .spots-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .spot-card {
+        border-radius: 18px;
+        overflow: hidden;
+        position: relative;
+        aspect-ratio: 3/4;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .spot-card:hover {
+        transform: translateY(-5px);
+      }
+      .spot-card-bg {
+        position: absolute;
+        inset: 0;
+        transition: transform 0.6s ease;
+      }
+      .spot-card:hover .spot-card-bg {
+        transform: scale(1.06);
+      }
+      .spot-card:nth-child(1) .spot-card-bg {
+        background: linear-gradient(
+          180deg,
+          #7db8b6 0%,
+          #3a8a7a 60%,
+          #1a5a50 100%
+        );
+      }
+      .spot-card:nth-child(2) .spot-card-bg {
+        background: linear-gradient(
+          180deg,
+          #c9b896 0%,
+          #a89060 60%,
+          #7a6840 100%
+        );
+      }
+      .spot-card:nth-child(3) .spot-card-bg {
+        background: linear-gradient(
+          180deg,
+          #8abcca 0%,
+          #5a9ab0 60%,
+          #3a7a90 100%
+        );
+      }
+      .spot-card:nth-child(4) .spot-card-bg {
+        background: linear-gradient(
+          180deg,
+          #90c4a0 0%,
+          #60a070 60%,
+          #408050 100%
+        );
+      }
+      .spot-card-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        font-size: 3.5rem;
+        opacity: 0.3;
+      }
+      .spot-card-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 28px 20px;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.6) 0%,
+          transparent 100%
+        );
+        color: var(--white);
+      }
+      .spot-card h3 {
+        font-family: var(--serif);
+        font-size: 1.3rem;
+        font-weight: 400;
+        margin-bottom: 4px;
+      }
+      .spot-card p {
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        opacity: 0.8;
+      }
+
+      /* ===== ABONNEMENTS ===== */
+      .pricing {
+        padding: 120px 0;
+        background: var(--night);
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
+      .pricing::before {
+        content: "";
+        position: absolute;
+        top: -200px;
+        right: -200px;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(26, 107, 106, 0.15) 0%,
+          transparent 70%
+        );
+      }
+      .pricing-header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      .pricing-header .section-tag {
+        color: var(--gold-light);
+      }
+      .pricing-header .section-title {
+        color: var(--white);
+      }
+      .pricing-header .section-title em {
+        color: var(--coral-warm);
+      }
+      .pricing-header .section-subtitle {
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0 auto;
+      }
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .pricing-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 40px 32px;
+        transition: all 0.4s;
+        position: relative;
+      }
+      .pricing-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-4px);
+      }
+      .pricing-card.featured {
+        background: rgba(26, 107, 106, 0.2);
+        border-color: var(--ocean);
+      }
+      .pricing-card.featured::before {
+        content: "Populaire";
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--coral);
+        color: var(--white);
+        padding: 4px 16px;
+        border-radius: 20px;
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .pricing-card-name {
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 400;
+        margin-bottom: 8px;
+      }
+      .pricing-card-desc {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 24px;
+        line-height: 1.5;
+      }
+      .pricing-card-amount {
+        font-family: var(--serif);
+        font-size: 2.8rem;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+      .pricing-card-amount small {
+        font-size: 0.9rem;
+        font-weight: 300;
+        opacity: 0.6;
+      }
+      .pricing-card-period {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 28px;
+      }
+      .pricing-features {
+        list-style: none;
+        margin-bottom: 32px;
+      }
+      .pricing-features li {
+        padding: 8px 0;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .pricing-features li::before {
+        content: "✓";
+        color: var(--ocean-light);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      .pricing-card-cta {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+        border-radius: 12px;
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s;
+        cursor: pointer;
+        border: none;
+      }
+      .pricing-card .pricing-card-cta {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+      }
+      .pricing-card .pricing-card-cta:hover {
+        background: rgba(255, 255, 255, 0.18);
+      }
+      .pricing-card.featured .pricing-card-cta {
+        background: var(--coral);
+        color: var(--white);
+      }
+      .pricing-card.featured .pricing-card-cta:hover {
+        background: var(--coral-warm);
+      }
+
+      /* ===== TESTIMONIALS ===== */
+      .testimonials {
+        padding: 120px 0;
+        background: var(--sand);
+      }
+      .testimonials-header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      .testimonials-header .section-subtitle {
+        margin: 0 auto;
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+      .testimonial-card {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 36px;
+        position: relative;
+      }
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: 20px;
+        right: 28px;
+        font-family: var(--serif);
+        font-size: 5rem;
+        color: var(--ocean-pale);
+        line-height: 1;
+      }
+      .testimonial-stars {
+        color: var(--gold);
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+        letter-spacing: 2px;
+      }
+      .testimonial-card blockquote {
+        font-family: var(--sans);
+        font-size: 0.9rem;
+        color: var(--text);
+        line-height: 1.75;
+        margin-bottom: 24px;
+        font-style: normal;
+      }
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .testimonial-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--white);
+      }
+      .testimonial-card:nth-child(1) .testimonial-avatar {
+        background: var(--ocean);
+      }
+      .testimonial-card:nth-child(2) .testimonial-avatar {
+        background: var(--coral);
+      }
+      .testimonial-card:nth-child(3) .testimonial-avatar {
+        background: var(--gold);
+      }
+      .testimonial-name {
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--night);
+      }
+      .testimonial-origin {
+        font-size: 0.78rem;
+        color: var(--text-light);
+      }
+
+      /* ===== FAQ ===== */
+      .faq {
+        padding: 120px 0;
+      }
+      .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr;
+        gap: 80px;
+        align-items: start;
+      }
+      .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .faq-item {
+        border-bottom: 1px solid var(--sand-deep);
+        overflow: hidden;
+      }
+      .faq-question {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 22px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--night);
+        text-align: left;
+        transition: color 0.3s;
+      }
+      .faq-question:hover {
+        color: var(--ocean);
+      }
+      .faq-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 1.5px solid var(--sand-deep);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        color: var(--ocean);
+        transition: all 0.3s;
+        flex-shrink: 0;
+      }
+      .faq-item.active .faq-icon {
+        background: var(--ocean);
+        color: var(--white);
+        border-color: var(--ocean);
+        transform: rotate(45deg);
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.4s ease,
+          padding 0.4s ease;
+      }
+      .faq-item.active .faq-answer {
+        max-height: 300px;
+      }
+      .faq-answer p {
+        padding: 0 0 22px;
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        color: var(--text-light);
+        line-height: 1.75;
+      }
+
+      /* ===== CONTACT / BOOKING ===== */
+      .booking {
+        padding: 120px 0;
+        background: linear-gradient(160deg, var(--ocean) 0%, #0d4a4a 100%);
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
+      .booking::before {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: rgba(212, 133, 106, 0.08);
+      }
+      .booking-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .booking-header .section-tag {
+        color: var(--gold-light);
+      }
+      .booking-header .section-title {
+        color: var(--white);
+      }
+      .booking-header .section-title em {
+        color: var(--coral-warm);
+      }
+      .booking-header .section-subtitle {
+        color: rgba(255, 255, 255, 0.65);
+        margin-bottom: 32px;
+      }
+      .booking-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 24px;
+      }
+      .booking-info-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .booking-info-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .booking-form {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 40px;
+        backdrop-filter: blur(10px);
+      }
+      .booking-form h3 {
+        font-family: var(--serif);
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin-bottom: 28px;
+      }
+      .form-group {
+        margin-bottom: 18px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 8px;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        color: var(--white);
+        font-family: var(--sans);
+        font-size: 0.9rem;
+        transition: all 0.3s;
+        outline: none;
+      }
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .form-group select option {
+        background: var(--night);
+        color: var(--white);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .form-submit {
+        width: 100%;
+        padding: 16px;
+        background: var(--coral);
+        color: var(--white);
+        border: none;
+        border-radius: 12px;
+        font-family: var(--sans);
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 8px;
+        letter-spacing: 0.03em;
+      }
+      .form-submit:hover {
+        background: var(--coral-warm);
+        transform: translateY(-1px);
+      }
+
+      /* ===== INSTAGRAM BANNER ===== */
+      .instagram {
+        padding: 80px 0;
+        text-align: center;
+        background: var(--cream);
+      }
+      .instagram-tag {
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-light);
+        margin-bottom: 12px;
+      }
+      .instagram-handle {
+        font-family: var(--serif);
+        font-size: clamp(1.4rem, 3vw, 2.2rem);
+        font-weight: 400;
+        color: var(--night);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .instagram-handle:hover {
+        color: var(--ocean);
+      }
+      .instagram-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+        margin-top: 40px;
+      }
+      .instagram-item {
+        aspect-ratio: 1;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.4s;
+      }
+      .instagram-item:hover {
+        transform: scale(1.03);
+      }
+      .instagram-item:nth-child(1) {
+        background: linear-gradient(135deg, #7db8b6, #3a8a7a);
+      }
+      .instagram-item:nth-child(2) {
+        background: linear-gradient(135deg, #e0c4a0, #c49a6c);
+      }
+      .instagram-item:nth-child(3) {
+        background: linear-gradient(135deg, #8abcca, #5a9ab0);
+      }
+      .instagram-item:nth-child(4) {
+        background: linear-gradient(135deg, #d4a47a, #b07850);
+      }
+      .instagram-item:nth-child(5) {
+        background: linear-gradient(135deg, #90c4a0, #60a070);
+      }
+      .instagram-item:nth-child(6) {
+        background: linear-gradient(135deg, #b0d0c8, #7ab0a0);
+      }
+      .instagram-item-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.8rem;
+        opacity: 0.4;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--night);
+        color: rgba(255, 255, 255, 0.6);
+        padding: 80px 0 40px;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 60px;
+      }
+      .footer-brand .nav-logo {
+        display: inline-block;
+        margin-bottom: 16px;
+      }
+      .footer-brand p {
+        font-size: 0.85rem;
+        line-height: 1.7;
+        max-width: 280px;
+      }
+      .footer-col h4 {
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.4);
+        margin-bottom: 20px;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col li {
+        margin-bottom: 12px;
+      }
+      .footer-col a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.88rem;
+        transition: color 0.3s;
+      }
+      .footer-col a:hover {
+        color: var(--coral-warm);
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-top: 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.78rem;
+      }
+      .footer-social {
+        display: flex;
+        gap: 16px;
+      }
+      .footer-social a {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+      }
+      .footer-social a:hover {
+        background: var(--ocean);
+        transform: translateY(-2px);
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 1024px) {
         .sessions-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+          grid-template-columns: repeat(2, 1fr);
         }
-        .session-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative;
+        .sessions-grid .session-card:nth-child(3) {
+          grid-column: span 2;
+          max-width: 480px;
+          margin: 0 auto;
         }
-        .session-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.08); }
-        .session-card-visual {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .session-card:nth-child(1) .session-card-visual { background: linear-gradient(135deg, #e0f0ef 0%, #c5e8e7 100%); }
-        .session-card:nth-child(2) .session-card-visual { background: linear-gradient(135deg, #f5ede3 0%, #e8d9c5 100%); }
-        .session-card:nth-child(3) .session-card-visual { background: linear-gradient(135deg, #e8e0d4 0%, #d4c4a8 100%); }
-        .session-card-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: var(--white);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-family: var(--sans);
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--ocean);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-        .session-card-body { padding: 32px; }
-        .session-card h3 {
-            font-family: var(--serif);
-            font-size: 1.6rem;
-            font-weight: 400;
-            color: var(--night);
-            margin-bottom: 8px;
-        }
-        .session-card-meta {
-            font-family: var(--sans);
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .session-card-meta span { display: flex; align-items: center; gap: 4px; }
-        .session-card p {
-            font-family: var(--sans);
-            font-size: 0.88rem;
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 24px;
-        }
-        .session-card-price {
-            display: flex;
-            align-items: baseline;
-            gap: 6px;
-            margin-bottom: 20px;
-        }
-        .session-card-price .amount {
-            font-family: var(--serif);
-            font-size: 2rem;
-            font-weight: 500;
-            color: var(--ocean);
-        }
-        .session-card-price .per {
-            font-family: var(--sans);
-            font-size: 0.8rem;
-            color: var(--text-light);
-        }
-        .session-card-cta {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 14px;
-            border-radius: 12px;
-            font-family: var(--sans);
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s;
-            letter-spacing: 0.03em;
-        }
-        .session-card:nth-child(1) .session-card-cta,
-        .session-card:nth-child(3) .session-card-cta {
-            background: var(--ocean-pale);
-            color: var(--ocean);
-        }
-        .session-card:nth-child(1) .session-card-cta:hover,
-        .session-card:nth-child(3) .session-card-cta:hover {
-            background: var(--ocean);
-            color: var(--white);
-        }
-        .session-card:nth-child(2) .session-card-cta {
-            background: var(--ocean);
-            color: var(--white);
-        }
-        .session-card:nth-child(2) .session-card-cta:hover { background: var(--ocean-light); }
-        .session-card:nth-child(2) { border: 2px solid var(--ocean); }
-        .session-card:nth-child(2) .session-card-badge { background: var(--ocean); color: var(--white); }
-
-        /* ===== SPOTS / LIEUX ===== */
-        .spots {
-            padding: 120px 0;
-            position: relative;
-        }
-        .spots-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-        .spots-header .section-subtitle { margin: 0 auto; }
         .spots-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+          grid-template-columns: repeat(2, 1fr);
         }
-        .spot-card {
-            border-radius: 18px;
-            overflow: hidden;
-            position: relative;
-            aspect-ratio: 3/4;
-            cursor: pointer;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .spot-card:hover { transform: translateY(-5px); }
-        .spot-card-bg {
-            position: absolute;
-            inset: 0;
-            transition: transform 0.6s ease;
-        }
-        .spot-card:hover .spot-card-bg { transform: scale(1.06); }
-        .spot-card:nth-child(1) .spot-card-bg { background: linear-gradient(180deg, #7db8b6 0%, #3a8a7a 60%, #1a5a50 100%); }
-        .spot-card:nth-child(2) .spot-card-bg { background: linear-gradient(180deg, #c9b896 0%, #a89060 60%, #7a6840 100%); }
-        .spot-card:nth-child(3) .spot-card-bg { background: linear-gradient(180deg, #8abcca 0%, #5a9ab0 60%, #3a7a90 100%); }
-        .spot-card:nth-child(4) .spot-card-bg { background: linear-gradient(180deg, #90c4a0 0%, #60a070 60%, #408050 100%); }
-        .spot-card-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -60%);
-            font-size: 3.5rem;
-            opacity: 0.3;
-        }
-        .spot-card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 28px 20px;
-            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
-            color: var(--white);
-        }
-        .spot-card h3 {
-            font-family: var(--serif);
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 4px;
-        }
-        .spot-card p {
-            font-family: var(--sans);
-            font-size: 0.78rem;
-            opacity: 0.8;
-        }
-
-        /* ===== ABONNEMENTS ===== */
-        .pricing {
-            padding: 120px 0;
-            background: var(--night);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        .pricing::before {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(26,107,106,0.15) 0%, transparent 70%);
-        }
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-        .pricing-header .section-tag { color: var(--gold-light); }
-        .pricing-header .section-title { color: var(--white); }
-        .pricing-header .section-title em { color: var(--coral-warm); }
-        .pricing-header .section-subtitle { color: rgba(255,255,255,0.6); margin: 0 auto; }
         .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            max-width: 960px;
-            margin: 0 auto;
+          grid-template-columns: repeat(2, 1fr);
         }
-        .pricing-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 20px;
-            padding: 40px 32px;
-            transition: all 0.4s;
-            position: relative;
-        }
-        .pricing-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
-        .pricing-card.featured {
-            background: rgba(26,107,106,0.2);
-            border-color: var(--ocean);
-        }
-        .pricing-card.featured::before {
-            content: 'Populaire';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--coral);
-            color: var(--white);
-            padding: 4px 16px;
-            border-radius: 20px;
-            font-family: var(--sans);
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-        .pricing-card-name {
-            font-family: var(--serif);
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 8px;
-        }
-        .pricing-card-desc {
-            font-size: 0.82rem;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 24px;
-            line-height: 1.5;
-        }
-        .pricing-card-amount {
-            font-family: var(--serif);
-            font-size: 2.8rem;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-        .pricing-card-amount small {
-            font-size: 0.9rem;
-            font-weight: 300;
-            opacity: 0.6;
-        }
-        .pricing-card-period {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.45);
-            margin-bottom: 28px;
-        }
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-        .pricing-features li {
-            padding: 8px 0;
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.7);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .pricing-features li::before {
-            content: '✓';
-            color: var(--ocean-light);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .pricing-card-cta {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 14px;
-            border-radius: 12px;
-            font-family: var(--sans);
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-        }
-        .pricing-card .pricing-card-cta {
-            background: rgba(255,255,255,0.1);
-            color: var(--white);
-        }
-        .pricing-card .pricing-card-cta:hover { background: rgba(255,255,255,0.18); }
-        .pricing-card.featured .pricing-card-cta {
-            background: var(--coral);
-            color: var(--white);
-        }
-        .pricing-card.featured .pricing-card-cta:hover { background: var(--coral-warm); }
-
-        /* ===== TESTIMONIALS ===== */
-        .testimonials {
-            padding: 120px 0;
-            background: var(--sand);
-        }
-        .testimonials-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-        .testimonials-header .section-subtitle { margin: 0 auto; }
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-        .testimonial-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 36px;
-            position: relative;
-        }
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            right: 28px;
-            font-family: var(--serif);
-            font-size: 5rem;
-            color: var(--ocean-pale);
-            line-height: 1;
-        }
-        .testimonial-stars {
-            color: var(--gold);
-            font-size: 0.85rem;
-            margin-bottom: 16px;
-            letter-spacing: 2px;
-        }
-        .testimonial-card blockquote {
-            font-family: var(--sans);
-            font-size: 0.9rem;
-            color: var(--text);
-            line-height: 1.75;
-            margin-bottom: 24px;
-            font-style: normal;
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .testimonial-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--white);
-        }
-        .testimonial-card:nth-child(1) .testimonial-avatar { background: var(--ocean); }
-        .testimonial-card:nth-child(2) .testimonial-avatar { background: var(--coral); }
-        .testimonial-card:nth-child(3) .testimonial-avatar { background: var(--gold); }
-        .testimonial-name {
-            font-family: var(--sans);
-            font-size: 0.88rem;
-            font-weight: 500;
-            color: var(--night);
-        }
-        .testimonial-origin {
-            font-size: 0.78rem;
-            color: var(--text-light);
-        }
-
-        /* ===== FAQ ===== */
-        .faq {
-            padding: 120px 0;
-        }
-        .faq-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 80px;
-            align-items: start;
-        }
-        .faq-list { display: flex; flex-direction: column; gap: 0; }
-        .faq-item {
-            border-bottom: 1px solid var(--sand-deep);
-            overflow: hidden;
-        }
-        .faq-question {
-            width: 100%;
-            background: none;
-            border: none;
-            padding: 22px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            font-family: var(--sans);
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--night);
-            text-align: left;
-            transition: color 0.3s;
-        }
-        .faq-question:hover { color: var(--ocean); }
-        .faq-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            border: 1.5px solid var(--sand-deep);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            color: var(--ocean);
-            transition: all 0.3s;
-            flex-shrink: 0;
-        }
-        .faq-item.active .faq-icon { background: var(--ocean); color: var(--white); border-color: var(--ocean); transform: rotate(45deg); }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-        }
-        .faq-item.active .faq-answer { max-height: 300px; }
-        .faq-answer p {
-            padding: 0 0 22px;
-            font-family: var(--sans);
-            font-size: 0.88rem;
-            color: var(--text-light);
-            line-height: 1.75;
-        }
-
-        /* ===== CONTACT / BOOKING ===== */
-        .booking {
-            padding: 120px 0;
-            background: linear-gradient(160deg, var(--ocean) 0%, #0d4a4a 100%);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        .booking::before {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            background: rgba(212,133,106,0.08);
-        }
-        .booking-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        .booking-header .section-tag { color: var(--gold-light); }
-        .booking-header .section-title { color: var(--white); }
-        .booking-header .section-title em { color: var(--coral-warm); }
-        .booking-header .section-subtitle { color: rgba(255,255,255,0.65); margin-bottom: 32px; }
-        .booking-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 24px;
-        }
-        .booking-info-item {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.8);
-        }
-        .booking-info-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-        .booking-form {
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-        }
-        .booking-form h3 {
-            font-family: var(--serif);
-            font-size: 1.6rem;
-            font-weight: 400;
-            margin-bottom: 28px;
-        }
-        .form-group {
-            margin-bottom: 18px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 0.78rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 8px;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 16px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 12px;
-            color: var(--white);
-            font-family: var(--sans);
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            outline: none;
-        }
-        .form-group input::placeholder,
-        .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); }
-        .form-group select option { background: var(--night); color: var(--white); }
-        .form-group textarea { resize: vertical; min-height: 100px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .form-submit {
-            width: 100%;
-            padding: 16px;
-            background: var(--coral);
-            color: var(--white);
-            border: none;
-            border-radius: 12px;
-            font-family: var(--sans);
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 8px;
-            letter-spacing: 0.03em;
-        }
-        .form-submit:hover { background: var(--coral-warm); transform: translateY(-1px); }
-
-        /* ===== INSTAGRAM BANNER ===== */
-        .instagram {
-            padding: 80px 0;
-            text-align: center;
-            background: var(--cream);
-        }
-        .instagram-tag {
-            font-family: var(--sans);
-            font-size: 0.78rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-light);
-            margin-bottom: 12px;
-        }
-        .instagram-handle {
-            font-family: var(--serif);
-            font-size: clamp(1.4rem, 3vw, 2.2rem);
-            font-weight: 400;
-            color: var(--night);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .instagram-handle:hover { color: var(--ocean); }
-        .instagram-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 6px;
-            margin-top: 40px;
-        }
-        .instagram-item {
-            aspect-ratio: 1;
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s;
-        }
-        .instagram-item:hover { transform: scale(1.03); }
-        .instagram-item:nth-child(1) { background: linear-gradient(135deg, #7db8b6, #3a8a7a); }
-        .instagram-item:nth-child(2) { background: linear-gradient(135deg, #e0c4a0, #c49a6c); }
-        .instagram-item:nth-child(3) { background: linear-gradient(135deg, #8abcca, #5a9ab0); }
-        .instagram-item:nth-child(4) { background: linear-gradient(135deg, #d4a47a, #b07850); }
-        .instagram-item:nth-child(5) { background: linear-gradient(135deg, #90c4a0, #60a070); }
-        .instagram-item:nth-child(6) { background: linear-gradient(135deg, #b0d0c8, #7ab0a0); }
-        .instagram-item-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.8rem;
-            opacity: 0.4;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--night);
-            color: rgba(255,255,255,0.6);
-            padding: 80px 0 40px;
+        .pricing-grid .pricing-card:last-child {
+          grid-column: span 2;
+          max-width: 400px;
+          margin: 0 auto;
         }
         .footer-top {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
         }
-        .footer-brand .nav-logo {
-            display: inline-block;
-            margin-bottom: 16px;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(28, 36, 32, 0.97);
+          backdrop-filter: blur(20px);
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 24px;
+          z-index: 999;
         }
-        .footer-brand p {
-            font-size: 0.85rem;
-            line-height: 1.7;
-            max-width: 280px;
+        .nav-links.active {
+          display: flex;
         }
-        .footer-col h4 {
-            font-family: var(--sans);
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
-            margin-bottom: 20px;
+        .nav-links a {
+          color: var(--white) !important;
+          font-size: 1.1rem;
         }
-        .footer-col ul { list-style: none; }
-        .footer-col li { margin-bottom: 12px; }
-        .footer-col a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 0.88rem;
-            transition: color 0.3s;
+        .hamburger {
+          display: flex;
         }
-        .footer-col a:hover { color: var(--coral-warm); }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+        .about-image {
+          max-height: 350px;
+        }
+        .sessions-grid {
+          grid-template-columns: 1fr;
+        }
+        .sessions-grid .session-card:nth-child(3) {
+          grid-column: auto;
+          max-width: none;
+        }
+        .spots-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+        .pricing-grid .pricing-card:last-child {
+          grid-column: auto;
+          max-width: none;
+        }
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+        .faq-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .booking-grid {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+        .instagram-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.06);
-            padding-top: 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.78rem;
+          flex-direction: column;
+          gap: 16px;
+          text-align: center;
         }
-        .footer-social { display: flex; gap: 16px; }
-        .footer-social a {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.06);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s;
+        .form-row {
+          grid-template-columns: 1fr;
         }
-        .footer-social a:hover { background: var(--ocean); transform: translateY(-2px); }
+      }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .sessions-grid { grid-template-columns: repeat(2, 1fr); }
-            .sessions-grid .session-card:nth-child(3) { grid-column: span 2; max-width: 480px; margin: 0 auto; }
-            .spots-grid { grid-template-columns: repeat(2, 1fr); }
-            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-            .pricing-grid .pricing-card:last-child { grid-column: span 2; max-width: 400px; margin: 0 auto; }
-            .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      @media (max-width: 480px) {
+        .spots-grid {
+          grid-template-columns: 1fr;
         }
-
-        @media (max-width: 768px) {
-            .nav-links { 
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(28, 36, 32, 0.97);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 24px;
-                z-index: 999;
-            }
-            .nav-links.active { display: flex; }
-            .nav-links a { color: var(--white) !important; font-size: 1.1rem; }
-            .hamburger { display: flex; }
-            .about-grid { grid-template-columns: 1fr; gap: 48px; }
-            .about-image { max-height: 350px; }
-            .sessions-grid { grid-template-columns: 1fr; }
-            .sessions-grid .session-card:nth-child(3) { grid-column: auto; max-width: none; }
-            .spots-grid { grid-template-columns: 1fr 1fr; }
-            .pricing-grid { grid-template-columns: 1fr; }
-            .pricing-grid .pricing-card:last-child { grid-column: auto; max-width: none; }
-            .testimonials-grid { grid-template-columns: 1fr; }
-            .faq-grid { grid-template-columns: 1fr; gap: 40px; }
-            .booking-grid { grid-template-columns: 1fr; gap: 48px; }
-            .instagram-grid { grid-template-columns: repeat(3, 1fr); }
-            .footer-top { grid-template-columns: 1fr; gap: 32px; }
-            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
-            .form-row { grid-template-columns: 1fr; }
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
         }
-
-        @media (max-width: 480px) {
-            .spots-grid { grid-template-columns: 1fr; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+        .btn-primary,
+        .btn-secondary {
+          width: 100%;
+          justify-content: center;
         }
+      }
     </style>
-</head>
-<body>
-
-<!-- NAVIGATION -->
-<nav id="navbar">
-    <div class="container nav-inner">
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+      <div class="container nav-inner">
         <a href="#" class="nav-logo">Yoga <span>Baba</span></a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#sessions">Sessions</a></li>
-            <li><a href="#spots">Lieux</a></li>
-            <li><a href="#pricing">Abonnements</a></li>
-            <li><a href="#testimonials">Avis</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#booking" class="nav-cta">Réserver</a></li>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#sessions">Sessions</a></li>
+          <li><a href="#spots">Lieux</a></li>
+          <li><a href="#pricing">Abonnements</a></li>
+          <li><a href="#testimonials">Avis</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#booking" class="nav-cta">Réserver</a></li>
         </ul>
         <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-    <div class="hero-bg-pattern"></div>
-    <div class="hero-floating-leaf">🌿</div>
-    <div class="hero-floating-leaf">🍃</div>
-    <div class="hero-floating-leaf">🌱</div>
-    <div class="hero-content">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-pattern" style="background-image: url('https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHlvZ2F8ZW58MHx8MHx8fDI%3D'); background-size: cover; background-repeat: no-repeat; background-position-x: 75%;"></div>
+      <div class="hero-floating-leaf">🌿</div>
+      <div class="hero-floating-leaf">🍃</div>
+      <div class="hero-floating-leaf">🌱</div>
+      <div class="hero-content">
         <div class="hero-tag">Yoga · Seychelles · Nature</div>
-        <h1>Respirez.<br>Sous les <em>tropiques.</em></h1>
-        <p class="hero-sub">Sessions de yoga en plein air sur les plus belles plages des Seychelles. Reconnectez-vous à votre corps, bercé·e par l'océan.</p>
+        <h1>Respirez.<br />Sous les <em>tropiques.</em></h1>
+        <p class="hero-sub">
+          Sessions de yoga en plein air sur les plus belles plages des
+          Seychelles. Reconnectez-vous à votre corps, bercé·e par l'océan.
+        </p>
         <div class="hero-buttons">
-            <a href="#booking" class="btn-primary">Réserver une session →</a>
-            <a href="#sessions" class="btn-secondary">Découvrir les offres</a>
+          <a href="#booking" class="btn-primary">Réserver une session →</a>
+          <a href="#sessions" class="btn-secondary">Découvrir les offres</a>
         </div>
-    </div>
-    <div class="hero-scroll"><span></span></div>
-    <div class="hero-wave">
+      </div>
+      <div class="hero-scroll"><span></span></div>
+      <div class="hero-wave">
         <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
-            <path d="M0 60C240 120 480 0 720 60C960 120 1200 0 1440 60V120H0Z" fill="var(--cream)"/>
+          <path
+            d="M0 60C240 120 480 0 720 60C960 120 1200 0 1440 60V120H0Z"
+            fill="var(--cream)"
+          />
         </svg>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-    <div class="container about-grid">
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="container about-grid">
         <div class="about-image reveal">
-            <div class="about-image-inner">
-                <div class="about-image-lotus">🧘‍♀️</div>
-                <div class="about-image-text">« Le yoga est le voyage<br>du soi, à travers soi,<br>vers soi. »</div>
+          <div class="about-image-inner">
+            <div class="about-image-lotus">🧘‍♀️</div>
+            <div class="about-image-text">
+              « Le yoga est le voyage<br />du soi, à travers soi,<br />vers soi.
+              »
             </div>
+          </div>
         </div>
         <div class="about-text">
-            <div class="section-tag reveal">À propos</div>
-            <h2 class="section-title reveal reveal-delay-1">Séréna, votre guide<br>vers <em>l'harmonie</em></h2>
-            <p class="section-subtitle reveal reveal-delay-2">
-                Installée aux Seychelles depuis 8 ans, je suis certifiée Yoga Alliance RYT-500. Ma pratique mêle Vinyasa, Hatha et méditation de pleine conscience, toujours en connexion profonde avec la nature qui nous entoure.
-            </p>
-            <p class="section-subtitle reveal reveal-delay-2" style="margin-top: 16px;">
-                Chaque session est une invitation à ralentir, à écouter les vagues, à sentir le sable chaud sous vos pieds et à retrouver votre équilibre intérieur.
-            </p>
-            <div class="about-values reveal reveal-delay-3">
-                <div class="about-value">
-                    <div class="about-value-icon">🌊</div>
-                    <div>
-                        <h4>Ancrage naturel</h4>
-                        <p>Sessions exclusivement en extérieur — plage, forêt, rochers granitiques</p>
-                    </div>
-                </div>
-                <div class="about-value">
-                    <div class="about-value-icon">🤝</div>
-                    <div>
-                        <h4>Approche personnalisée</h4>
-                        <p>Chaque corps est unique. Je m'adapte à votre niveau et vos besoins</p>
-                    </div>
-                </div>
-                <div class="about-value">
-                    <div class="about-value-icon">🌱</div>
-                    <div>
-                        <h4>Engagement local</h4>
-                        <p>Partenariats avec les hébergements locaux, respect de l'environnement</p>
-                    </div>
-                </div>
+          <div class="section-tag reveal">À propos</div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Séréna, votre guide<br />vers <em>l'harmonie</em>
+          </h2>
+          <p class="section-subtitle reveal reveal-delay-2">
+            Installée aux Seychelles depuis 8 ans, je suis certifiée Yoga
+            Alliance RYT-500. Ma pratique mêle Vinyasa, Hatha et méditation de
+            pleine conscience, toujours en connexion profonde avec la nature qui
+            nous entoure.
+          </p>
+          <p
+            class="section-subtitle reveal reveal-delay-2"
+            style="margin-top: 16px"
+          >
+            Chaque session est une invitation à ralentir, à écouter les vagues,
+            à sentir le sable chaud sous vos pieds et à retrouver votre
+            équilibre intérieur.
+          </p>
+          <div class="about-values reveal reveal-delay-3">
+            <div class="about-value">
+              <div class="about-value-icon">🌊</div>
+              <div>
+                <h4>Ancrage naturel</h4>
+                <p>
+                  Sessions exclusivement en extérieur — plage, forêt, rochers
+                  granitiques
+                </p>
+              </div>
             </div>
+            <div class="about-value">
+              <div class="about-value-icon">🤝</div>
+              <div>
+                <h4>Approche personnalisée</h4>
+                <p>
+                  Chaque corps est unique. Je m'adapte à votre niveau et vos
+                  besoins
+                </p>
+              </div>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">🌱</div>
+              <div>
+                <h4>Engagement local</h4>
+                <p>
+                  Partenariats avec les hébergements locaux, respect de
+                  l'environnement
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- SESSIONS -->
-<section class="sessions" id="sessions">
-    <div class="container">
+    <!-- SESSIONS -->
+    <section class="sessions" id="sessions">
+      <div class="container">
         <div class="sessions-header">
-            <div class="section-tag reveal">Sessions</div>
-            <h2 class="section-title reveal reveal-delay-1">Trouvez votre <em>pratique</em></h2>
-            <p class="section-subtitle reveal reveal-delay-2">Du lever du soleil au coucher, choisissez le format qui vous correspond</p>
+          <div class="section-tag reveal">Sessions</div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Trouvez votre <em>pratique</em>
+          </h2>
+          <p class="section-subtitle reveal reveal-delay-2">
+            Du lever du soleil au coucher, choisissez le format qui vous
+            correspond
+          </p>
         </div>
         <div class="sessions-grid">
-            <!-- Card 1 -->
-            <div class="session-card reveal">
-                <div class="session-card-visual">
-                    🌅
-                    <div class="session-card-badge">Individuel</div>
-                </div>
-                <div class="session-card-body">
-                    <h3>Session Privée</h3>
-                    <div class="session-card-meta">
-                        <span>⏱ 75 min</span>
-                        <span>📍 Lieu au choix</span>
-                    </div>
-                    <p>Un moment rien qu'à vous. Pratique sur-mesure adaptée à vos objectifs : souplesse, force, détente ou méditation profonde.</p>
-                    <div class="session-card-price">
-                        <span class="amount">85€</span>
-                        <span class="per">/ session</span>
-                    </div>
-                    <a href="#booking" class="session-card-cta">Réserver →</a>
-                </div>
+          <!-- Card 1 -->
+          <div class="session-card reveal">
+            <div class="session-card-visual">
+              🌅
+              <div class="session-card-badge">Individuel</div>
             </div>
-            <!-- Card 2 -->
-            <div class="session-card reveal reveal-delay-1">
-                <div class="session-card-visual">
-                    🏝️
-                    <div class="session-card-badge">★ Signature</div>
-                </div>
-                <div class="session-card-body">
-                    <h3>Sunrise Beach</h3>
-                    <div class="session-card-meta">
-                        <span>⏱ 60 min</span>
-                        <span>👥 6 pers. max</span>
-                    </div>
-                    <p>Notre session signature au lever du soleil. Vinyasa flow pieds dans le sable, suivi d'une méditation face à l'horizon. Magique.</p>
-                    <div class="session-card-price">
-                        <span class="amount">35€</span>
-                        <span class="per">/ personne</span>
-                    </div>
-                    <a href="#booking" class="session-card-cta">Réserver →</a>
-                </div>
+            <div class="session-card-body">
+              <h3>Session Privée</h3>
+              <div class="session-card-meta">
+                <span>⏱ 75 min</span>
+                <span>📍 Lieu au choix</span>
+              </div>
+              <p>
+                Un moment rien qu'à vous. Pratique sur-mesure adaptée à vos
+                objectifs : souplesse, force, détente ou méditation profonde.
+              </p>
+              <div class="session-card-price">
+                <span class="amount">85€</span>
+                <span class="per">/ session</span>
+              </div>
+              <a href="#booking" class="session-card-cta">Réserver →</a>
             </div>
-            <!-- Card 3 -->
-            <div class="session-card reveal reveal-delay-2">
-                <div class="session-card-visual">
-                    🌿
-                    <div class="session-card-badge">Groupe</div>
-                </div>
-                <div class="session-card-body">
-                    <h3>Retraite Nature</h3>
-                    <div class="session-card-meta">
-                        <span>⏱ Demi-journée</span>
-                        <span>👥 8 pers. max</span>
-                    </div>
-                    <p>Randonnée, yoga en forêt tropicale, méditation au bord de cascade. Une immersion complète dans la nature seychelloise.</p>
-                    <div class="session-card-price">
-                        <span class="amount">120€</span>
-                        <span class="per">/ personne</span>
-                    </div>
-                    <a href="#booking" class="session-card-cta">Réserver →</a>
-                </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="session-card reveal reveal-delay-1">
+            <div class="session-card-visual">
+              🏝️
+              <div class="session-card-badge">★ Signature</div>
             </div>
+            <div class="session-card-body">
+              <h3>Sunrise Beach</h3>
+              <div class="session-card-meta">
+                <span>⏱ 60 min</span>
+                <span>👥 6 pers. max</span>
+              </div>
+              <p>
+                Notre session signature au lever du soleil. Vinyasa flow pieds
+                dans le sable, suivi d'une méditation face à l'horizon. Magique.
+              </p>
+              <div class="session-card-price">
+                <span class="amount">35€</span>
+                <span class="per">/ personne</span>
+              </div>
+              <a href="#booking" class="session-card-cta">Réserver →</a>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="session-card reveal reveal-delay-2">
+            <div class="session-card-visual">
+              🌿
+              <div class="session-card-badge">Groupe</div>
+            </div>
+            <div class="session-card-body">
+              <h3>Retraite Nature</h3>
+              <div class="session-card-meta">
+                <span>⏱ Demi-journée</span>
+                <span>👥 8 pers. max</span>
+              </div>
+              <p>
+                Randonnée, yoga en forêt tropicale, méditation au bord de
+                cascade. Une immersion complète dans la nature seychelloise.
+              </p>
+              <div class="session-card-price">
+                <span class="amount">120€</span>
+                <span class="per">/ personne</span>
+              </div>
+              <a href="#booking" class="session-card-cta">Réserver →</a>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- SPOTS -->
-<section class="spots" id="spots">
-    <div class="container">
+    <!-- SPOTS -->
+    <section class="spots" id="spots">
+      <div class="container">
         <div class="spots-header">
-            <div class="section-tag reveal">Lieux</div>
-            <h2 class="section-title reveal reveal-delay-1">Nos spots <em>d'exception</em></h2>
-            <p class="section-subtitle reveal reveal-delay-2">Des cadres naturels uniques au monde pour votre pratique</p>
+          <div class="section-tag reveal">Lieux</div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Nos spots <em>d'exception</em>
+          </h2>
+          <p class="section-subtitle reveal reveal-delay-2">
+            Des cadres naturels uniques au monde pour votre pratique
+          </p>
         </div>
         <div class="spots-grid">
-            <div class="spot-card reveal">
-                <div class="spot-card-bg"></div>
-                <div class="spot-card-icon">🏖️</div>
-                <div class="spot-card-content">
-                    <h3>Anse Source d'Argent</h3>
-                    <p>La plage iconique de La Digue</p>
-                </div>
+          <div class="spot-card reveal">
+            <div class="spot-card-bg"></div>
+            <div class="spot-card-icon">🏖️</div>
+            <div class="spot-card-content">
+              <h3>Anse Source d'Argent</h3>
+              <p>La plage iconique de La Digue</p>
             </div>
-            <div class="spot-card reveal reveal-delay-1">
-                <div class="spot-card-bg"></div>
-                <div class="spot-card-icon">🪨</div>
-                <div class="spot-card-content">
-                    <h3>Rochers de Mahé</h3>
-                    <p>Yoga sur granit face à l'océan</p>
-                </div>
+          </div>
+          <div class="spot-card reveal reveal-delay-1">
+            <div class="spot-card-bg"></div>
+            <div class="spot-card-icon">🪨</div>
+            <div class="spot-card-content">
+              <h3>Rochers de Mahé</h3>
+              <p>Yoga sur granit face à l'océan</p>
             </div>
-            <div class="spot-card reveal reveal-delay-2">
-                <div class="spot-card-bg"></div>
-                <div class="spot-card-icon">🐚</div>
-                <div class="spot-card-content">
-                    <h3>Anse Lazio</h3>
-                    <p>Eaux turquoise et sable blanc</p>
-                </div>
+          </div>
+          <div class="spot-card reveal reveal-delay-2">
+            <div class="spot-card-bg"></div>
+            <div class="spot-card-icon">🐚</div>
+            <div class="spot-card-content">
+              <h3>Anse Lazio</h3>
+              <p>Eaux turquoise et sable blanc</p>
             </div>
-            <div class="spot-card reveal reveal-delay-3">
-                <div class="spot-card-bg"></div>
-                <div class="spot-card-icon">🌴</div>
-                <div class="spot-card-content">
-                    <h3>Vallée de Mai</h3>
-                    <p>Forêt primaire classée UNESCO</p>
-                </div>
+          </div>
+          <div class="spot-card reveal reveal-delay-3">
+            <div class="spot-card-bg"></div>
+            <div class="spot-card-icon">🌴</div>
+            <div class="spot-card-content">
+              <h3>Vallée de Mai</h3>
+              <p>Forêt primaire classée UNESCO</p>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-    <div class="container">
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+      <div class="container">
         <div class="pricing-header">
-            <div class="section-tag reveal">Abonnements</div>
-            <h2 class="section-title reveal reveal-delay-1">Pratiquez <em>régulièrement</em></h2>
-            <p class="section-subtitle reveal reveal-delay-2">Des formules adaptées pour les résidents et les visiteurs longue durée</p>
+          <div class="section-tag reveal">Abonnements</div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Pratiquez <em>régulièrement</em>
+          </h2>
+          <p class="section-subtitle reveal reveal-delay-2">
+            Des formules adaptées pour les résidents et les visiteurs longue
+            durée
+          </p>
         </div>
         <div class="pricing-grid">
-            <div class="pricing-card reveal">
-                <div class="pricing-card-name">Découverte</div>
-                <div class="pricing-card-desc">Idéal pour un séjour court ou une première expérience</div>
-                <div class="pricing-card-amount">90€ <small>/ 3 sessions</small></div>
-                <div class="pricing-card-period">Valable 2 semaines</div>
-                <ul class="pricing-features">
-                    <li>3 sessions groupe au choix</li>
-                    <li>Tapis et accessoires fournis</li>
-                    <li>Flexibilité des horaires</li>
-                </ul>
-                <a href="#booking" class="pricing-card-cta">Commencer</a>
+          <div class="pricing-card reveal">
+            <div class="pricing-card-name">Découverte</div>
+            <div class="pricing-card-desc">
+              Idéal pour un séjour court ou une première expérience
             </div>
-            <div class="pricing-card featured reveal reveal-delay-1">
-                <div class="pricing-card-name">Équilibre</div>
-                <div class="pricing-card-desc">Notre formule la plus populaire pour une pratique régulière</div>
-                <div class="pricing-card-amount">220€ <small>/ mois</small></div>
-                <div class="pricing-card-period">Sessions illimitées en groupe</div>
-                <ul class="pricing-features">
-                    <li>Sessions groupe illimitées</li>
-                    <li>1 session privée incluse</li>
-                    <li>Accès prioritaire sunrise</li>
-                    <li>Communauté WhatsApp privée</li>
-                </ul>
-                <a href="#booking" class="pricing-card-cta">Choisir cette offre</a>
+            <div class="pricing-card-amount">
+              90€ <small>/ 3 sessions</small>
             </div>
-            <div class="pricing-card reveal reveal-delay-2">
-                <div class="pricing-card-name">Harmonie</div>
-                <div class="pricing-card-desc">L'engagement long terme pour une transformation profonde</div>
-                <div class="pricing-card-amount">550€ <small>/ trimestre</small></div>
-                <div class="pricing-card-period">Soit 183€/mois – économisez 17%</div>
-                <ul class="pricing-features">
-                    <li>Tout inclus de Équilibre</li>
-                    <li>2 sessions privées / mois</li>
-                    <li>1 retraite nature offerte</li>
-                    <li>Suivi personnalisé</li>
-                </ul>
-                <a href="#booking" class="pricing-card-cta">Commencer</a>
+            <div class="pricing-card-period">Valable 2 semaines</div>
+            <ul class="pricing-features">
+              <li>3 sessions groupe au choix</li>
+              <li>Tapis et accessoires fournis</li>
+              <li>Flexibilité des horaires</li>
+            </ul>
+            <a href="#booking" class="pricing-card-cta">Commencer</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-delay-1">
+            <div class="pricing-card-name">Équilibre</div>
+            <div class="pricing-card-desc">
+              Notre formule la plus populaire pour une pratique régulière
             </div>
+            <div class="pricing-card-amount">220€ <small>/ mois</small></div>
+            <div class="pricing-card-period">Sessions illimitées en groupe</div>
+            <ul class="pricing-features">
+              <li>Sessions groupe illimitées</li>
+              <li>1 session privée incluse</li>
+              <li>Accès prioritaire sunrise</li>
+              <li>Communauté WhatsApp privée</li>
+            </ul>
+            <a href="#booking" class="pricing-card-cta">Choisir cette offre</a>
+          </div>
+          <div class="pricing-card reveal reveal-delay-2">
+            <div class="pricing-card-name">Harmonie</div>
+            <div class="pricing-card-desc">
+              L'engagement long terme pour une transformation profonde
+            </div>
+            <div class="pricing-card-amount">
+              550€ <small>/ trimestre</small>
+            </div>
+            <div class="pricing-card-period">
+              Soit 183€/mois – économisez 17%
+            </div>
+            <ul class="pricing-features">
+              <li>Tout inclus de Équilibre</li>
+              <li>2 sessions privées / mois</li>
+              <li>1 retraite nature offerte</li>
+              <li>Suivi personnalisé</li>
+            </ul>
+            <a href="#booking" class="pricing-card-cta">Commencer</a>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-    <div class="container">
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
         <div class="testimonials-header">
-            <div class="section-tag reveal">Témoignages</div>
-            <h2 class="section-title reveal reveal-delay-1">Ce qu'ils <em>en disent</em></h2>
-            <p class="section-subtitle reveal reveal-delay-2">Plus de 500 élèves accompagnés depuis 2018</p>
+          <div class="section-tag reveal">Témoignages</div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Ce qu'ils <em>en disent</em>
+          </h2>
+          <p class="section-subtitle reveal reveal-delay-2">
+            Plus de 500 élèves accompagnés depuis 2018
+          </p>
         </div>
         <div class="testimonials-grid">
-            <div class="testimonial-card reveal">
-                <div class="testimonial-stars">★★★★★</div>
-                <blockquote>Une expérience transformatrice. Pratiquer le yoga au lever du soleil sur Anse Source d'Argent avec Oriane restera un de mes plus beaux souvenirs. Sa douceur et son énergie sont communicatives.</blockquote>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">C</div>
-                    <div>
-                        <div class="testimonial-name">Camille D.</div>
-                        <div class="testimonial-origin">Paris, France</div>
-                    </div>
-                </div>
+          <div class="testimonial-card reveal">
+            <div class="testimonial-stars">★★★★★</div>
+            <blockquote>
+              Une expérience transformatrice. Pratiquer le yoga au lever du
+              soleil sur Anse Source d'Argent avec Oriane restera un de mes plus
+              beaux souvenirs. Sa douceur et son énergie sont communicatives.
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">C</div>
+              <div>
+                <div class="testimonial-name">Camille D.</div>
+                <div class="testimonial-origin">Paris, France</div>
+              </div>
             </div>
-            <div class="testimonial-card reveal reveal-delay-1">
-                <div class="testimonial-stars">★★★★★</div>
-                <blockquote>Je suis résidente à Mahé et j'ai essayé plusieurs cours de yoga sur l'île. Oriane est de loin la meilleure. Son approche respectueuse de la nature et son attention à chaque élève font toute la différence.</blockquote>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">N</div>
-                    <div>
-                        <div class="testimonial-name">Nathalie R.</div>
-                        <div class="testimonial-origin">Mahé, Seychelles</div>
-                    </div>
-                </div>
+          </div>
+          <div class="testimonial-card reveal reveal-delay-1">
+            <div class="testimonial-stars">★★★★★</div>
+            <blockquote>
+              Je suis résidente à Mahé et j'ai essayé plusieurs cours de yoga
+              sur l'île. Oriane est de loin la meilleure. Son approche
+              respectueuse de la nature et son attention à chaque élève font
+              toute la différence.
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">N</div>
+              <div>
+                <div class="testimonial-name">Nathalie R.</div>
+                <div class="testimonial-origin">Mahé, Seychelles</div>
+              </div>
             </div>
-            <div class="testimonial-card reveal reveal-delay-2">
-                <div class="testimonial-stars">★★★★★</div>
-                <blockquote>La retraite nature a dépassé toutes mes attentes. Randonnée dans la Vallée de Mai suivie de yoga au milieu des cocotiers — c'est exactement ce dont j'avais besoin pour me ressourcer.</blockquote>
-                <div class="testimonial-author">
-                    <div class="testimonial-avatar">M</div>
-                    <div>
-                        <div class="testimonial-name">Marc L.</div>
-                        <div class="testimonial-origin">Genève, Suisse</div>
-                    </div>
-                </div>
+          </div>
+          <div class="testimonial-card reveal reveal-delay-2">
+            <div class="testimonial-stars">★★★★★</div>
+            <blockquote>
+              La retraite nature a dépassé toutes mes attentes. Randonnée dans
+              la Vallée de Mai suivie de yoga au milieu des cocotiers — c'est
+              exactement ce dont j'avais besoin pour me ressourcer.
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">M</div>
+              <div>
+                <div class="testimonial-name">Marc L.</div>
+                <div class="testimonial-origin">Genève, Suisse</div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- FAQ -->
-<section class="faq" id="faq">
-    <div class="container faq-grid">
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container faq-grid">
         <div>
-            <div class="section-tag reveal">FAQ</div>
-            <h2 class="section-title reveal reveal-delay-1">Questions <em>fréquentes</em></h2>
-            <p class="section-subtitle reveal reveal-delay-2">Tout ce que vous devez savoir avant votre première session</p>
+          <div class="section-tag reveal">FAQ</div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Questions <em>fréquentes</em>
+          </h2>
+          <p class="section-subtitle reveal reveal-delay-2">
+            Tout ce que vous devez savoir avant votre première session
+          </p>
         </div>
         <div class="faq-list">
-            <div class="faq-item active reveal">
-                <button class="faq-question">
-                    Dois-je avoir de l'expérience en yoga ?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Absolument pas ! Mes sessions sont ouvertes à tous les niveaux, du débutant complet au pratiquant avancé. J'adapte chaque posture et propose des variantes pour que chacun progresse à son rythme en toute sécurité.</p>
-                </div>
+          <div class="faq-item active reveal">
+            <button class="faq-question">
+              Dois-je avoir de l'expérience en yoga ?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Absolument pas ! Mes sessions sont ouvertes à tous les niveaux,
+                du débutant complet au pratiquant avancé. J'adapte chaque
+                posture et propose des variantes pour que chacun progresse à son
+                rythme en toute sécurité.
+              </p>
             </div>
-            <div class="faq-item reveal reveal-delay-1">
-                <button class="faq-question">
-                    Que dois-je apporter ?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Juste vous-même, une tenue confortable et de l'eau. Je fournis tapis, blocs et sangles. Pour les sessions plage, pensez à la crème solaire et un chapeau. Pour les retraites nature, des chaussures de marche sont recommandées.</p>
-                </div>
+          </div>
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question">
+              Que dois-je apporter ?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Juste vous-même, une tenue confortable et de l'eau. Je fournis
+                tapis, blocs et sangles. Pour les sessions plage, pensez à la
+                crème solaire et un chapeau. Pour les retraites nature, des
+                chaussures de marche sont recommandées.
+              </p>
             </div>
-            <div class="faq-item reveal reveal-delay-2">
-                <button class="faq-question">
-                    Que se passe-t-il en cas de pluie ?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Aux Seychelles, la pluie est souvent passagère ! En cas de forte pluie, nous nous replions vers un espace couvert partenaire. Vous serez prévenu·e par message la veille au soir en cas de changement de lieu.</p>
-                </div>
+          </div>
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-question">
+              Que se passe-t-il en cas de pluie ?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Aux Seychelles, la pluie est souvent passagère ! En cas de forte
+                pluie, nous nous replions vers un espace couvert partenaire.
+                Vous serez prévenu·e par message la veille au soir en cas de
+                changement de lieu.
+              </p>
             </div>
-            <div class="faq-item reveal reveal-delay-3">
-                <button class="faq-question">
-                    Comment se déroule la réservation ?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Remplissez le formulaire ci-dessous ou contactez-moi via WhatsApp. Je vous confirme le créneau sous 24h. Le paiement se fait sur place (espèces ou carte) ou par virement. Annulation gratuite jusqu'à 12h avant la session.</p>
-                </div>
+          </div>
+          <div class="faq-item reveal reveal-delay-3">
+            <button class="faq-question">
+              Comment se déroule la réservation ?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Remplissez le formulaire ci-dessous ou contactez-moi via
+                WhatsApp. Je vous confirme le créneau sous 24h. Le paiement se
+                fait sur place (espèces ou carte) ou par virement. Annulation
+                gratuite jusqu'à 12h avant la session.
+              </p>
             </div>
-            <div class="faq-item reveal reveal-delay-4">
-                <button class="faq-question">
-                    Proposez-vous des sessions pour les hôtels ?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Oui, je collabore avec plusieurs hôtels et guesthouses des Seychelles. Je me déplace pour des sessions privées ou collectives au sein de votre établissement. Contactez-moi pour un devis sur mesure.</p>
-                </div>
+          </div>
+          <div class="faq-item reveal reveal-delay-4">
+            <button class="faq-question">
+              Proposez-vous des sessions pour les hôtels ?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Oui, je collabore avec plusieurs hôtels et guesthouses des
+                Seychelles. Je me déplace pour des sessions privées ou
+                collectives au sein de votre établissement. Contactez-moi pour
+                un devis sur mesure.
+              </p>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- BOOKING -->
-<section class="booking" id="booking">
-    <div class="container booking-grid">
+    <!-- BOOKING -->
+    <section class="booking" id="booking">
+      <div class="container booking-grid">
         <div class="booking-header">
-            <div class="section-tag reveal">Réservation</div>
-            <h2 class="section-title reveal reveal-delay-1">Prêt·e à commencer<br>votre <em>voyage</em> ?</h2>
-            <p class="section-subtitle reveal reveal-delay-2">Réservez votre session ou contactez-moi pour toute question. Je réponds sous 24h.</p>
-            <div class="booking-info reveal reveal-delay-3">
-                <div class="booking-info-item">
-                    <div class="booking-info-icon">📍</div>
-                    Mahé, Praslin & La Digue — Seychelles
-                </div>
-                <div class="booking-info-item">
-                    <div class="booking-info-icon">📱</div>
-                    +248 2 XX XX XX (WhatsApp)
-                </div>
-                <div class="booking-info-item">
-                    <div class="booking-info-icon">✉️</div>
-                    hello@oriane-yoga.sc
-                </div>
-                <div class="booking-info-item">
-                    <div class="booking-info-icon">🕐</div>
-                    Sessions : 6h–10h & 16h–19h
-                </div>
+          <div class="section-tag reveal">Réservation</div>
+          <h2 class="section-title reveal reveal-delay-1">
+            Prêt·e à commencer<br />votre <em>voyage</em> ?
+          </h2>
+          <p class="section-subtitle reveal reveal-delay-2">
+            Réservez votre session ou contactez-moi pour toute question. Je
+            réponds sous 24h.
+          </p>
+          <div class="booking-info reveal reveal-delay-3">
+            <div class="booking-info-item">
+              <div class="booking-info-icon">📍</div>
+              Mahé, Praslin & La Digue — Seychelles
             </div>
+            <div class="booking-info-item">
+              <div class="booking-info-icon">📱</div>
+              +248 2 XX XX XX (WhatsApp)
+            </div>
+            <div class="booking-info-item">
+              <div class="booking-info-icon">✉️</div>
+              hello@oriane-yoga.sc
+            </div>
+            <div class="booking-info-item">
+              <div class="booking-info-icon">🕐</div>
+              Sessions : 6h–10h & 16h–19h
+            </div>
+          </div>
         </div>
         <div class="booking-form reveal reveal-delay-2">
-            <h3>Réserver une session</h3>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Prénom</label>
-                    <input type="text" placeholder="Votre prénom">
-                </div>
-                <div class="form-group">
-                    <label>Nom</label>
-                    <input type="text" placeholder="Votre nom">
-                </div>
+          <h3>Réserver une session</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom</label>
+              <input type="text" placeholder="Votre prénom" />
             </div>
             <div class="form-group">
-                <label>Email</label>
-                <input type="email" placeholder="votre@email.com">
+              <label>Nom</label>
+              <input type="text" placeholder="Votre nom" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="votre@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Type de session</label>
+            <select>
+              <option value="">Choisir une session</option>
+              <option>Session privée (75 min)</option>
+              <option>Sunrise Beach — groupe (60 min)</option>
+              <option>Retraite Nature — demi-journée</option>
+              <option>Pack Découverte (3 sessions)</option>
+              <option>Abonnement Équilibre</option>
+              <option>Abonnement Harmonie</option>
+              <option>Session hôtel / groupe privé</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Date souhaitée</label>
+              <input type="date" />
             </div>
             <div class="form-group">
-                <label>Type de session</label>
-                <select>
-                    <option value="">Choisir une session</option>
-                    <option>Session privée (75 min)</option>
-                    <option>Sunrise Beach — groupe (60 min)</option>
-                    <option>Retraite Nature — demi-journée</option>
-                    <option>Pack Découverte (3 sessions)</option>
-                    <option>Abonnement Équilibre</option>
-                    <option>Abonnement Harmonie</option>
-                    <option>Session hôtel / groupe privé</option>
-                </select>
+              <label>Nombre de personnes</label>
+              <select>
+                <option>1 personne</option>
+                <option>2 personnes</option>
+                <option>3 personnes</option>
+                <option>4 personnes</option>
+                <option>5+ personnes</option>
+              </select>
             </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Date souhaitée</label>
-                    <input type="date">
-                </div>
-                <div class="form-group">
-                    <label>Nombre de personnes</label>
-                    <select>
-                        <option>1 personne</option>
-                        <option>2 personnes</option>
-                        <option>3 personnes</option>
-                        <option>4 personnes</option>
-                        <option>5+ personnes</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Message (optionnel)</label>
-                <textarea placeholder="Précisez votre niveau, vos attentes ou toute information utile..."></textarea>
-            </div>
-            <button class="form-submit" onclick="handleSubmit()">Envoyer ma demande →</button>
+          </div>
+          <div class="form-group">
+            <label>Message (optionnel)</label>
+            <textarea
+              placeholder="Précisez votre niveau, vos attentes ou toute information utile..."
+            ></textarea>
+          </div>
+          <button class="form-submit" onclick="handleSubmit()">
+            Envoyer ma demande →
+          </button>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- INSTAGRAM -->
-<section class="instagram">
-    <div class="container">
+    <!-- INSTAGRAM -->
+    <section class="instagram">
+      <div class="container">
         <div class="instagram-tag reveal">Suivez-moi sur Instagram</div>
-        <a href="#" class="instagram-handle reveal reveal-delay-1">@oriane.yoga.seychelles</a>
+        <a href="#" class="instagram-handle reveal reveal-delay-1"
+          >@oriane.yoga.seychelles</a
+        >
         <div class="instagram-grid reveal reveal-delay-2">
-            <div class="instagram-item"><div class="instagram-item-icon">🧘‍♀️</div></div>
-            <div class="instagram-item"><div class="instagram-item-icon">🌅</div></div>
-            <div class="instagram-item"><div class="instagram-item-icon">🌴</div></div>
-            <div class="instagram-item"><div class="instagram-item-icon">🐢</div></div>
-            <div class="instagram-item"><div class="instagram-item-icon">🏝️</div></div>
-            <div class="instagram-item"><div class="instagram-item-icon">🪷</div></div>
+          <div class="instagram-item">
+            <div class="instagram-item-icon">🧘‍♀️</div>
+          </div>
+          <div class="instagram-item">
+            <div class="instagram-item-icon">🌅</div>
+          </div>
+          <div class="instagram-item">
+            <div class="instagram-item-icon">🌴</div>
+          </div>
+          <div class="instagram-item">
+            <div class="instagram-item-icon">🐢</div>
+          </div>
+          <div class="instagram-item">
+            <div class="instagram-item-icon">🏝️</div>
+          </div>
+          <div class="instagram-item">
+            <div class="instagram-item-icon">🪷</div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-<!-- FOOTER -->
-<footer>
-    <div class="container">
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
         <div class="footer-top">
-            <div class="footer-brand">
-                <a href="#" class="nav-logo">Yoga <span>Baba</span></a>
-                <p>Coach de yoga indépendante aux Seychelles. Sessions sur la plage, en forêt et dans les plus beaux cadres naturels de l'archipel.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#sessions">Sessions</a></li>
-                    <li><a href="#spots">Lieux</a></li>
-                    <li><a href="#pricing">Abonnements</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Sessions</h4>
-                <ul>
-                    <li><a href="#sessions">Session privée</a></li>
-                    <li><a href="#sessions">Sunrise Beach</a></li>
-                    <li><a href="#sessions">Retraite Nature</a></li>
-                    <li><a href="#booking">Groupes & hôtels</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href="#">hello@oriane-yoga.sc</a></li>
-                    <li><a href="#">+248 2 XX XX XX</a></li>
-                    <li><a href="#">WhatsApp</a></li>
-                    <li><a href="#">Instagram</a></li>
-                </ul>
-            </div>
+          <div class="footer-brand">
+            <a href="#" class="nav-logo">Yoga <span>Baba</span></a>
+            <p>
+              Coach de yoga indépendante aux Seychelles. Sessions sur la plage,
+              en forêt et dans les plus beaux cadres naturels de l'archipel.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="#about">À propos</a></li>
+              <li><a href="#sessions">Sessions</a></li>
+              <li><a href="#spots">Lieux</a></li>
+              <li><a href="#pricing">Abonnements</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Sessions</h4>
+            <ul>
+              <li><a href="#sessions">Session privée</a></li>
+              <li><a href="#sessions">Sunrise Beach</a></li>
+              <li><a href="#sessions">Retraite Nature</a></li>
+              <li><a href="#booking">Groupes & hôtels</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="#">hello@oriane-yoga.sc</a></li>
+              <li><a href="#">+248 2 XX XX XX</a></li>
+              <li><a href="#">WhatsApp</a></li>
+              <li><a href="#">Instagram</a></li>
+            </ul>
+          </div>
         </div>
         <div class="footer-bottom">
-            <span>© 2026 Yoga Baba — Seychelles. Tous droits réservés.</span>
-            <div class="footer-social">
-                <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="WhatsApp">💬</a>
-                <a href="#" aria-label="Facebook">👤</a>
-            </div>
+          <span>© 2026 Yoga Baba — Seychelles. Tous droits réservés.</span>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="WhatsApp">💬</a>
+            <a href="#" aria-label="Facebook">👤</a>
+          </div>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<script>
-    // Navigation scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 60);
-    });
+    <script>
+      // Navigation scroll effect
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 60);
+      });
 
-    // Mobile menu
-    function toggleMenu() {
-        const links = document.getElementById('navLinks');
-        const hamburger = document.getElementById('hamburger');
-        links.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    }
+      // Mobile menu
+      function toggleMenu() {
+        const links = document.getElementById("navLinks");
+        const hamburger = document.getElementById("hamburger");
+        links.classList.toggle("active");
+        hamburger.classList.toggle("active");
+      }
 
-    // Close mobile menu on link click
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            document.getElementById('navLinks').classList.remove('active');
-            document.getElementById('hamburger').classList.remove('active');
+      // Close mobile menu on link click
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("navLinks").classList.remove("active");
+          document.getElementById("hamburger").classList.remove("active");
         });
-    });
+      });
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+      // Scroll reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+              entry.target.classList.add("visible");
             }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      // FAQ Accordion
+      document.querySelectorAll(".faq-question").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.parentElement;
+          const wasActive = item.classList.contains("active");
+          document
+            .querySelectorAll(".faq-item")
+            .forEach((i) => i.classList.remove("active"));
+          if (!wasActive) item.classList.add("active");
         });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // FAQ Accordion
-    document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const item = btn.parentElement;
-            const wasActive = item.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-            if (!wasActive) item.classList.add('active');
-        });
-    });
-
-    // Form submit
-    function handleSubmit() {
-        const btn = document.querySelector('.form-submit');
-        btn.textContent = '✓ Demande envoyée !';
-        btn.style.background = '#2A8B89';
-        btn.style.pointerEvents = 'none';
+      // Form submit
+      function handleSubmit() {
+        const btn = document.querySelector(".form-submit");
+        btn.textContent = "✓ Demande envoyée !";
+        btn.style.background = "#2A8B89";
+        btn.style.pointerEvents = "none";
         setTimeout(() => {
-            btn.textContent = 'Envoyer ma demande →';
-            btn.style.background = '';
-            btn.style.pointerEvents = '';
+          btn.textContent = "Envoyer ma demande →";
+          btn.style.background = "";
+          btn.style.pointerEvents = "";
         }, 3000);
-    }
+      }
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
         });
-    });
-</script>
-
-</body>
+      });
+    </script>
+  </body>
 </html>
