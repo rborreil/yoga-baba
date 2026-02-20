@@ -6,7 +6,7 @@
     <title>Yoga Baba — Sessions de Yoga aux Seychelles | Plage & Nature</title>
     <meta
       name="description"
-      content="Séréna, coach de yoga indépendante aux Seychelles. Sessions sur la plage, en pleine nature. Réservez votre séance individuelle ou en groupe."
+      content="Oriane, coach de yoga indépendante aux Seychelles. Sessions sur la plage, en pleine nature. Réservez votre séance individuelle ou en groupe."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -570,6 +570,11 @@
         color: var(--ocean);
         font-style: italic;
         line-height: 1.5;
+        text-shadow: 0 1px 1px #0d4a4a;
+        border: 1px solid var(--coral);
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.586);
+        padding: 15px 45px;
       }
       .about-image::before {
         content: "";
@@ -675,13 +680,31 @@
         overflow: hidden;
       }
       .session-card:nth-child(1) .session-card-visual {
-        background: linear-gradient(135deg, #e0f0ef 0%, #c5e8e7 100%);
+        background: linear-gradient(135deg, #f0efe0 0%, #e7e8c5 100%);
+      }
+      .session-card:nth-child(1):hover .session-card-visual {
+        background-image: url('https://images.unsplash.com/vector-1765188858497-82024cc60ef3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fHN1bnJpc2V8ZW58MHx8MHx8fDI%3D');
+        background-size: cover;
+        background-position-y: 45%;
       }
       .session-card:nth-child(2) .session-card-visual {
-        background: linear-gradient(135deg, #f5ede3 0%, #e8d9c5 100%);
+        background: linear-gradient(135deg, #e3f5f5 0%, #c5e6e8 100%);
+      }
+      .session-card:nth-child(2):hover .session-card-visual {
+        background-image: url('https://plus.unsplash.com/premium_vector-1715261711878-e08d09d99905?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3VucmlzZXxlbnwwfHwwfHx8MA%3D%3D');
+        background-size: cover;
+        background-position-y: 25%;
       }
       .session-card:nth-child(3) .session-card-visual {
-        background: linear-gradient(135deg, #e8e0d4 0%, #d4c4a8 100%);
+        background: linear-gradient(135deg, #d4e8d5 0%, #acd4a8 100%);
+      }
+      .session-card:nth-child(3):hover .session-card-visual {
+        background-image: url('https://images.unsplash.com/vector-1752217168734-443cbf2e0f70?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fHN1bnJpc2V8ZW58MHx8MHx8fDA%3D');
+        background-size: cover;
+        background-position-y: 45%;
+      }
+      .session-card:hover .session-card-icon {
+        display: none;
       }
       .session-card-badge {
         position: absolute;
@@ -827,6 +850,11 @@
           #1a5a50 100%
         );
       }
+      .spot-card:nth-child(1):hover .spot-card-bg {
+        background-image: url('https://images.unsplash.com/photo-1706088843591-77d9f1fcb584?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: cover;
+        background-position-x: 50%;
+      }
       .spot-card:nth-child(2) .spot-card-bg {
         background: linear-gradient(
           180deg,
@@ -834,6 +862,11 @@
           #a89060 60%,
           #7a6840 100%
         );
+      }
+      .spot-card:nth-child(2):hover .spot-card-bg {
+        background-image: url('https://images.unsplash.com/photo-1519549293290-580b3fe37ef8?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW5zZSUyMGxhemlvfGVufDB8fDB8fHwy');
+        background-size: cover;
+        background-position-x: 50%;
       }
       .spot-card:nth-child(3) .spot-card-bg {
         background: linear-gradient(
@@ -843,6 +876,11 @@
           #3a7a90 100%
         );
       }
+      .spot-card:nth-child(3):hover .spot-card-bg {
+        background-image: url('https://images.unsplash.com/photo-1623941000342-fd0ccdcbb9c4?q=80&w=1744&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: cover;
+        background-position-x: 50%;
+      }
       .spot-card:nth-child(4) .spot-card-bg {
         background: linear-gradient(
           180deg,
@@ -850,6 +888,14 @@
           #60a070 60%,
           #408050 100%
         );
+      }
+      .spot-card:nth-child(4):hover .spot-card-bg {
+        background-image: url('https://images.unsplash.com/photo-1729683618285-aa0a1cc9470f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: cover;
+        background-position-x: 50%;
+      }
+      .spot-card:hover .spot-card-icon {
+        display: none;
       }
       .spot-card-icon {
         position: absolute;
@@ -1655,9 +1701,9 @@
     <!-- ABOUT -->
     <section class="about" id="about">
       <div class="container about-grid">
-        <div class="about-image reveal">
+        <div class="about-image reveal" style="background-image: url('https://images.unsplash.com/vector-1760049759295-daddd6b03143?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fHlvZ2F8ZW58MHx8MHx8fDI%3D'); background-size: cover; ">
           <div class="about-image-inner">
-            <div class="about-image-lotus">🧘‍♀️</div>
+            <!-- <div class="about-image-lotus">🧘‍♀️</div> -->
             <div class="about-image-text">
               « Le yoga est le voyage<br />du soi, à travers soi,<br />vers soi.
               »
@@ -1667,10 +1713,10 @@
         <div class="about-text">
           <div class="section-tag reveal">À propos</div>
           <h2 class="section-title reveal reveal-delay-1">
-            Séréna, votre guide<br />vers <em>l'harmonie</em>
+            Oriane, votre guide<br />vers <em>l'harmonie</em>
           </h2>
           <p class="section-subtitle reveal reveal-delay-2">
-            Installée aux Seychelles depuis 8 ans, je suis certifiée Yoga
+            Installée aux Seychelles depuis 10 ans, je suis certifiée Yoga
             Alliance RYT-500. Ma pratique mêle Vinyasa, Hatha et méditation de
             pleine conscience, toujours en connexion profonde avec la nature qui
             nous entoure.
@@ -1736,7 +1782,7 @@
           <!-- Card 1 -->
           <div class="session-card reveal">
             <div class="session-card-visual">
-              🌅
+              <div class="session-card-icon">🌅</div>
               <div class="session-card-badge">Individuel</div>
             </div>
             <div class="session-card-body">
@@ -1759,7 +1805,7 @@
           <!-- Card 2 -->
           <div class="session-card reveal reveal-delay-1">
             <div class="session-card-visual">
-              🏝️
+              <div class="session-card-icon">🏝️</div>
               <div class="session-card-badge">★ Signature</div>
             </div>
             <div class="session-card-body">
@@ -1782,7 +1828,7 @@
           <!-- Card 3 -->
           <div class="session-card reveal reveal-delay-2">
             <div class="session-card-visual">
-              🌿
+              <div class="session-card-icon">🌿</div>
               <div class="session-card-badge">Groupe</div>
             </div>
             <div class="session-card-body">
